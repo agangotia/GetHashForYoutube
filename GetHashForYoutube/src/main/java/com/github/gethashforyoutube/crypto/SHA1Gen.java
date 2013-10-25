@@ -1,5 +1,9 @@
 package com.github.gethashforyoutube.crypto;
-
+/**
+ * @author Anupam Gangotia
+ * Profile::http://en.gravatar.com/gangotia
+ * github::https://github.com/agangotia
+ */
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;

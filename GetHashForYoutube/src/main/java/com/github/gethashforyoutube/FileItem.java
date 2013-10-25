@@ -8,8 +8,9 @@ import com.github.gethashforyoutube.crypto.SHA1Gen;
 import com.github.gethashforyoutube.dumpwriter.HashWriter;
 
 /**
- * @author Anupam
- *
+ * @author Anupam Gangotia
+ * Profile::http://en.gravatar.com/gangotia
+ * github::https://github.com/agangotia
  */
 public class FileItem {
 	private String fileNameItem;//Original File Name

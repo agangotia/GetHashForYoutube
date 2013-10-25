@@ -1,5 +1,9 @@
 package com.github.gethashforyoutube.dumpwriter;
-
+/**
+ * @author Anupam Gangotia
+ * Profile::http://en.gravatar.com/gangotia
+ * github::https://github.com/agangotia
+ */
 import java.io.IOException;
 
 import au.com.bytecode.opencsv.CSV;

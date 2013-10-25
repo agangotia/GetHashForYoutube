@@ -11,8 +11,9 @@ import com.github.gethashforyoutube.constants.ConstantStuff;
 import com.github.gethashforyoutube.dumpwriter.HashWriter;
 
 /**
- * @author Anupam
- *
+ * @author Anupam Gangotia
+ * Profile::http://en.gravatar.com/gangotia
+ * github::https://github.com/agangotia
  */
 public class GetHashForYTMain {
 

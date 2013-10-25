@@ -1,5 +1,9 @@
 package com.github.gethashforyoutube.constants;
-
+/**
+ * @author Anupam Gangotia
+ * Profile::http://en.gravatar.com/gangotia
+ * github::https://github.com/agangotia
+ */
 public interface ConstantStuff {
 	public static final String DUMP_FILE_PATH="C:\\Users\\anugan\\TEMP\\";
 	public static final String DUMP_FILE_NAME_SHA1="DUMPSHA1.csv";
