@@ -13,5 +13,6 @@ public interface ConstantStuff {
 	public static final boolean IS_GEN_MD5=false;
 	
 	public static final int BUFFER_CRYPTO_READ=1024;
+	public static final int BLOCK_SIZE=4*1024;
 
 }
