@@ -38,14 +38,14 @@ public class GetHashForYTMain {
             	
             	
             	  if(ConstantStuff.IS_GEN_SHA1){
-            		  FileItem objFileItem=new FileItem("abc.mp4","/home/anu/tmp/","a1.mp4");
+            		  FileItem objFileItem=new FileItem(v.getFileName(),"/home/anu/tmp/",v.getFileName());
             		  objSHA1Dump=new HashWriter(',','"',"UTF-8",ConstantStuff.DUMP_FILE_PATH,ConstantStuff.DUMP_FILE_NAME_SHA1);
             		  objFileItem.setSHA1Dump(objSHA1Dump);
             		  objFileItem.generateSHA1();
             	  }
                   	
                   if(ConstantStuff.IS_GEN_MD5){
-                	  FileItem objFileItem=new FileItem("abc.mp4","/home/anu/tmp/","a1.mp4");
+                	  FileItem objFileItem=new FileItem(v.getFileName(),"/home/anu/tmp/",v.getFileName());
                 	  objMD5Dump=new HashWriter(',','"',"UTF-8",ConstantStuff.DUMP_FILE_PATH,ConstantStuff.DUMP_FILE_NAME_MD5);
                 	  objFileItem.setMD5Dump(objMD5Dump);
                 	  objFileItem.generateMD5();

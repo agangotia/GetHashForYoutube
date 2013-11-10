@@ -27,8 +27,16 @@ import com.github.axet.wget.info.ex.DownloadMultipartError;
 import com.github.axet.wget.info.ex.DownloadRetry;
 
 public class VGet {
+	String fileName;
+    public String getFileName() {
+		return fileName;
+	}
 
-    VideoInfo info;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	VideoInfo info;
     File targetDir;
 
     File targetForce = null;
@@ -201,7 +209,7 @@ public class VGet {
             String sfilename = replaceBadChars(info.getTitle());
 
             sfilename = maxFileNameLength(sfilename);
-            sfilename="a1";
+            //sfilename="a1";
 
             String ct = dinfo.getContentType();
             if (ct == null)
@@ -211,7 +219,7 @@ public class VGet {
 
             do {
                 String add = idupcount > 0 ? " (".concat(idupcount.toString()).concat(")") : "";
-
+               this.fileName=sfilename + add + "." + ext;
                 f = new File(targetDir, sfilename + add + "." + ext);
                 idupcount += 1;
             } while (f.exists());
