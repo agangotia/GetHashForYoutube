@@ -29,7 +29,7 @@ public class SHA1Gen {
         try {
 			while ((nread = fis.read(dataBytes)) != -1) {
 			   md.update(dataBytes, 0, nread);
-			 }
+			 }fis.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

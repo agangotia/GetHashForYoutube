@@ -3,7 +3,9 @@ package com.github.gethashforyoutube;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 
+import com.github.gethashforyoutube.crypto.MD5Gen;
 import com.github.gethashforyoutube.crypto.SHA1Gen;
 import com.github.gethashforyoutube.dumpwriter.HashWriter;
 
@@ -61,7 +63,18 @@ public class FileItem {
 			
 		
 	}
-	public void generateMD5(){
+	public int generateMD5() throws NoSuchAlgorithmException{
+		if (fisToreadFile!=null && MD5Dump!=null){
+			MD5Gen OBJmd5=new MD5Gen(fisToreadFile);
+			ArrayList<String[]> result=OBJmd5.fillMD5();
+			for(String[] tempReturned:result){
+				MD5Dump.writeToDump("col1",tempReturned[0],tempReturned[1]);
+			}
+			//SHA1Dump.writeToDump("col1","col2",OBJsha1.calculateSHA1());
+			return 0;
+		}else{
+			return 1;
+		}
 		
 	}
 	

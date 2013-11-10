@@ -49,7 +49,7 @@ public class MD5Gen {
 					   md.reset();
 					   bytesReadInBlock=0;
 				   }
-				 }
+				 }fis.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

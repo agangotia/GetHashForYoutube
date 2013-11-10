@@ -26,7 +26,7 @@ public class GetHashForYTMain {
             // ex: http://www.youtube.com/watch?v=Nj6PFaDmp6c
             String url = "http://www.youtube.com/watch?v=W0aE-w61Cb8";
             // ex: "/Users/axet/Downloads"
-            String path = "C:\\Users\\anugan\\TEMP";
+            String path = "/home/anu/tmp/";
             VGet v = new VGet(new URL(url), new File(path));
             v.download();
             
@@ -35,15 +35,17 @@ public class GetHashForYTMain {
             HashWriter objMD5Dump;
             
             {//loop here for individual files
-            	FileItem objFileItem=new FileItem("abc.mp4","C:\\Users\\anugan\\TEMP\\","a1.mp4");
+            	
             	
             	  if(ConstantStuff.IS_GEN_SHA1){
+            		  FileItem objFileItem=new FileItem("abc.mp4","/home/anu/tmp/","a1.mp4");
             		  objSHA1Dump=new HashWriter(',','"',"UTF-8",ConstantStuff.DUMP_FILE_PATH,ConstantStuff.DUMP_FILE_NAME_SHA1);
             		  objFileItem.setSHA1Dump(objSHA1Dump);
             		  objFileItem.generateSHA1();
             	  }
                   	
                   if(ConstantStuff.IS_GEN_MD5){
+                	  FileItem objFileItem=new FileItem("abc.mp4","/home/anu/tmp/","a1.mp4");
                 	  objMD5Dump=new HashWriter(',','"',"UTF-8",ConstantStuff.DUMP_FILE_PATH,ConstantStuff.DUMP_FILE_NAME_MD5);
                 	  objFileItem.setMD5Dump(objMD5Dump);
                 	  objFileItem.generateMD5();
@@ -55,7 +57,9 @@ public class GetHashForYTMain {
             if(ConstantStuff.IS_GEN_SHA1){
 	            	objSHA1Dump.close();
 	      	 }
-          
+            if(ConstantStuff.IS_GEN_MD5){
+            	objMD5Dump.close();
+      	 }
             
             
         } catch (Exception e) {
