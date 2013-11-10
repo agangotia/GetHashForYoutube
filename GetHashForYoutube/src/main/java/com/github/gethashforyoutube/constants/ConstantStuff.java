@@ -6,6 +6,7 @@ package com.github.gethashforyoutube.constants;
  */
 public interface ConstantStuff {
 	public static final String DUMP_FILE_PATH="/home/anu/tmp/";
+	public static final String URL_FILE_NAME="URLLIST.csv";
 	public static final String DUMP_FILE_NAME_SHA1="DUMPSHA1.csv";
 	public static final String DUMP_FILE_NAME_MD5="DUMPMD5.csv";
 	
