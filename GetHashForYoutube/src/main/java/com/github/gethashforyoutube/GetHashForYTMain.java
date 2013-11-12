@@ -31,7 +31,7 @@ public class GetHashForYTMain {
 
 			VideoUrlReader objReader=new VideoUrlReader(',','"');//Created a CSV Reader for URLLIST.csv
 			objReader.readValues();//Read all values into a list
-			ArrayList<String> urlList=objReader.getUrlList();//returned list
+			ArrayList<String> urlList=objReader.getUrlList();//returned list of Urls
 			
 			//Lets Create the Dump Files
             HashWriter objSHA1Dump=new HashWriter(',','"',"UTF-8",ConstantStuff.DUMP_FILE_PATH,ConstantStuff.DUMP_FILE_NAME_SHA1);
