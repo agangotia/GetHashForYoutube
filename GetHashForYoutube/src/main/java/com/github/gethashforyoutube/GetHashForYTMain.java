@@ -41,12 +41,12 @@ public class GetHashForYTMain {
 				System.out.println("\n Fethed Url "+urlCurrent);
 				System.out.println("\n 1.Downloading..."+urlCurrent);
 				
-	            VGet v = new VGet(new URL(urlCurrent), new File(ConstantStuff.DUMP_FILE_PATH));
-	            v.download();
+	            //VGet v = new VGet(new URL(urlCurrent), new File(ConstantStuff.DUMP_FILE_PATH));
+	            ///v.download();
 	            
 	            System.out.println("\n 2.Generating SHA1...");
 	            if(ConstantStuff.IS_GEN_SHA1){
-          		  FileItem objFileItem=new FileItem(v.getFileName(),ConstantStuff.DUMP_FILE_PATH,v.getFileName());
+          		  FileItem objFileItem=new FileItem(urlCurrent,ConstantStuff.DUMP_FILE_PATH,urlCurrent);
           		 
           		  objFileItem.setSHA1Dump(objSHA1Dump);
           		  objFileItem.generateSHA1();
@@ -54,7 +54,7 @@ public class GetHashForYTMain {
                 	
 	            System.out.println("\n 2.Generating MD5...");
                 if(ConstantStuff.IS_GEN_MD5){
-              	  FileItem objFileItem=new FileItem(v.getFileName(),ConstantStuff.DUMP_FILE_PATH,v.getFileName());
+              	  FileItem objFileItem=new FileItem(urlCurrent,ConstantStuff.DUMP_FILE_PATH,urlCurrent);
               	  
               	  objFileItem.setMD5Dump(objMD5Dump);
               	  objFileItem.generateMD5();
