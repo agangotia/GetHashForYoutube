@@ -37,82 +37,31 @@ public class GetHashForYTMain {
             HashWriter objSHA1Dump=new HashWriter(',','"',"UTF-8",ConstantStuff.DUMP_FILE_PATH,ConstantStuff.DUMP_FILE_NAME_SHA1);
             HashWriter objMD5Dump=new HashWriter(',','"',"UTF-8",ConstantStuff.DUMP_FILE_PATH,ConstantStuff.DUMP_FILE_NAME_MD5);
             
-			for(String urlCurrent:urlList){
-				System.out.println("\n Fethed Url "+urlCurrent);
-				System.out.println("\n 1.Downloading..."+urlCurrent);
+			for(int i=0;i<urlList.size();i++){
+				String urlCurrent=urlList.get(i);
+				String urlNext=urlList.get(i+1);
+				System.out.println("\n Reading two files"+urlCurrent);
 				
-	            //VGet v = new VGet(new URL(urlCurrent), new File(ConstantStuff.DUMP_FILE_PATH));
-	            ///v.download();
-	            
-	            System.out.println("\n 2.Generating SHA1...");
-	            if(ConstantStuff.IS_GEN_SHA1){
-          		  FileItem objFileItem=new FileItem(urlCurrent,ConstantStuff.DUMP_FILE_PATH,urlCurrent);
-          		 
-          		  objFileItem.setSHA1Dump(objSHA1Dump);
-          		  objFileItem.generateSHA1();
-          	  }
+				System.out.println("\n Creating Boundary Limits for Both files");
+				
+	            System.out.println("\n 2.Generating MD5 on these boundaries...");
                 	
 	            System.out.println("\n 2.Generating MD5...");
                 if(ConstantStuff.IS_GEN_MD5){
-              	  FileItem objFileItem=new FileItem(urlCurrent,ConstantStuff.DUMP_FILE_PATH,urlCurrent);
-              	  
+              	 
+              	DualFileItem objFileItem=new DualFileItem(ConstantStuff.DUMP_FILE_PATH,urlCurrent,ConstantStuff.DUMP_FILE_PATH,urlNext);
               	  objFileItem.setMD5Dump(objMD5Dump);
-              	  objFileItem.generateMD5();
+              	  objFileItem.setBoundaries();
                 }
+                i++;
           
 			}
 			
-			System.out.println("\n 3.Closing Dump Files...");
-			if(ConstantStuff.IS_GEN_SHA1){
-            	objSHA1Dump.close();
-      	 }
-        if(ConstantStuff.IS_GEN_MD5){
+		System.out.println("\n 3.Closing Dump Files...");
+		if(ConstantStuff.IS_GEN_MD5){
         	objMD5Dump.close();
         }
-			/*
-            // ex: http://www.youtube.com/watch?v=Nj6PFaDmp6c
-            String url = "http://www.youtube.com/watch?v=W0aE-w61Cb8";
-            // ex: "/Users/axet/Downloads"
-            String path = "/home/anu/tmp/";
-            VGet v = new VGet(new URL(url), new File(path));
-            v.download();
-            
-            //Lets Create the Dump Files
-            HashWriter objSHA1Dump;
-            HashWriter objMD5Dump;
-            
-            {//loop here for individual files
-            	
-            	
-            	  if(ConstantStuff.IS_GEN_SHA1){
-            		  FileItem objFileItem=new FileItem(v.getFileName(),"/home/anu/tmp/",v.getFileName());
-            		  objSHA1Dump=new HashWriter(',','"',"UTF-8",ConstantStuff.DUMP_FILE_PATH,ConstantStuff.DUMP_FILE_NAME_SHA1);
-            		  objFileItem.setSHA1Dump(objSHA1Dump);
-            		  objFileItem.generateSHA1();
-            	  }
-                  	
-                  if(ConstantStuff.IS_GEN_MD5){
-                	  FileItem objFileItem=new FileItem(v.getFileName(),"/home/anu/tmp/",v.getFileName());
-                	  objMD5Dump=new HashWriter(',','"',"UTF-8",ConstantStuff.DUMP_FILE_PATH,ConstantStuff.DUMP_FILE_NAME_MD5);
-                	  objFileItem.setMD5Dump(objMD5Dump);
-                	  objFileItem.generateMD5();
-                  }
-                  	
-            }
-            
-            
-            if(ConstantStuff.IS_GEN_SHA1){
-	            	objSHAif(ConstantStuff.IS_GEN_SHA1){
-	            	objSHA1Dump.close();
-	      	 }
-            if(ConstantStuff.IS_GEN_MD5){
-            	objMD5Dump.close();1Dump.close();
-	      	 }
-            if(ConstantStuff.IS_GEN_MD5){
-            	objMD5Dump.close();
-      	 }*/
-            
-            
+			
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
